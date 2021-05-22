@@ -1,3 +1,7 @@
+/* ========== general styles ========== */
+button { font-size: 20px; }
+
+/* ========== modal ========== */
 .modal {
   position: fixed;
   justify-content: center;
@@ -25,30 +29,93 @@
   overflow: auto;
 }
 
-.grid-container {
+/* ========== start grid container ========== */
+.start-grid-container {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
   row-gap: 30px;
 }
 
-.first-child {
+.start-first-child {
   place-self: center;
   padding: 5px 0 0 0;
   background-color: rgba(200, 0, 0, 0.2);
 }
 
-.second-child {
+.start-second-child {
   place-self: center;
   background-color: rgba(200, 200, 0, 0.2);
   padding: 0 10px 0 10px;
 }
 
-.third-child {
+.start-third-child {
   place-self: center;
   align-self: end;
   padding: 50px 0 0 0;
-  /* background-color: rgba(200, 0, 0, 0.9); */
+  background-color: rgba(200, 0, 0, 0.9);
 }
 
 button { font-size: 20px; }
+
+/* ========== pages ========== */
+.page-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  row-gap: 30px;
+}
+
+.first-page-child {
+  place-self: center;
+  padding: 5px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.2);
+}
+
+.second-page-child {
+  place-self: center;
+  background-color: rgba(200, 200, 0, 0.2);
+  padding: 0 10px 0 10px;
+}
+
+.third-page-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.9);
+}
+
+/* ========== death ==========
+     _____
+    ( O o )
+    /  O  \
+   /       \
+   ~~~~~~~~~
+*/
+
+.death-gird-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  row-gap: 30px;
+}
+
+.first-death-child {
+  place-self: center;
+  padding: 5px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.2);
+}
+
+.second-death-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.5);
+}
+
+.third-death-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.9);
+}
