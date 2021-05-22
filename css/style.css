@@ -61,14 +61,15 @@ button { font-size: 20px; }
 /* ========== pages ========== */
 .page-grid-container {
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+  grid-template-columns: 33% 33% auto;
+  grid-template-rows: auto 25% 25%;
+  border: solid red;
   row-gap: 30px;
 }
 
 .first-page-child {
-  place-self: center;
-  padding: 5px 0 0 0;
+  place-self: start;
+  padding: 5px 8px 20px 8px;
   background-color: rgba(200, 0, 0, 0.2);
 }
 

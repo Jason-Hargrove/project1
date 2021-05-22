@@ -21,6 +21,11 @@ const secondDeathChild = document.querySelector('.second-death-child');
 const thirddDeathChild = document.querySelector('.third-death-child');
 
 // ========== global fuinctions ==========
+// replaces class
+const replaceClass = (selector, old, updated) => {
+    selector.classList.replace(old, updated);
+}
+
 // increases dose randomly on page
 const randomDose = () => {
 
@@ -38,9 +43,9 @@ const updateButtons = () => {
 
 // ========== classes ==========
 class Character {
-  constructor(name, exposure) {
+  constructor(name, uptake) {
     this.name = name;
-    this.exposure = exposure;
+    this.uptake = uptake;
   }
   pickUp(){
 
@@ -82,9 +87,28 @@ const startGame = () => {
 
 // specific pages start here
 const firstPage = () => {
-  startGridContainer.classList.replace('start-grid-container', 'page-grid-container')
+  // replace grid container
+  replaceClass(startGridContainer, 'start-grid-container', 'page-grid-container');
+
+// replace first child - dose meter
+  replaceClass(startFirstChild, 'start-first-child', 'first-page-child');
+
+  // replace Second - text?
+  replaceClass(startSecondChild, 'start-second-child', 'second-page-child');
+
+  // replace third
+  replaceClass(startThirdChild, 'start-third-child', 'third-page-child');
 
 
+// firstPageChild.innerHTML =
+// `<h3>DOSE</h3> <center>${player.uptake}</center>`;
+
+
+// startSecondChild.innerHTML = `Cool. It worked!`;
+
+
+
+// end  first page
 }
 
 const secondPage = () => {
