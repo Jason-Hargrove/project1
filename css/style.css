@@ -21,56 +21,44 @@ button { font-size: 20px; }
   border-radius: 0.5em;
 }
 
-/* may need to add top left and width */
-.scrollable {
-  postion: absolute;
-  height: 100%;
-  padding: 20px 50px 20px 20px;
-  overflow: auto;
-}
-
 /* ========== start grid container ========== */
 .start-grid-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  row-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .start-first-child {
-  place-self: center;
-  padding: 5px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.2);
+  /* background-color: rgba(200, 0, 0, 0.2); */
 }
 
 .start-second-child {
-  place-self: center;
-  background-color: rgba(200, 200, 0, 0.2);
+  overflow: scroll;
+  height: 150px;
   padding: 0 10px 0 10px;
+  margin: 0px 5px 50px 5px;
+  /* background-color: rgba(200, 0, 0, 0.2); */
 }
 
 .start-third-child {
-  place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
+  margin: 50px 0 0 0;
   background-color: rgba(200, 0, 0, 0.9);
 }
 
-button { font-size: 20px; }
-
 /* ========== pages ========== */
 .page-grid-container {
-  display: grid;
-  grid-template-columns: 33% 33% auto;
-  grid-template-rows: auto 25% 25%;
+  display: flex;
+  flex-direction: row;
   border: solid red;
   row-gap: 30px;
 }
 
 .first-page-child {
-  place-self: start;
+  /* display: flex; */
+  /* place-self: start;
   padding: 5px 8px 20px 8px;
-  background-color: rgba(200, 0, 0, 0.2);
+  background-color: rgba(200, 0, 0, 0.2); */
 }
 
 .second-page-child {
@@ -79,7 +67,29 @@ button { font-size: 20px; }
   padding: 0 10px 0 10px;
 }
 
+/* just for the start page button */
 .third-page-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.9);
+}
+
+.fourth-page-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.9);
+}
+
+.fifth-page-child {
+  place-self: center;
+  align-self: end;
+  padding: 50px 0 0 0;
+  background-color: rgba(200, 0, 0, 0.9);
+}
+
+.sixth-page-child {
   place-self: center;
   align-self: end;
   padding: 50px 0 0 0;
