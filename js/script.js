@@ -46,6 +46,43 @@ const createLeftButton = () => {
 }
 
 
+// makes middle button
+const createMiddleButton = () => {
+  //creates the div
+  const createDiv = document.createElement('div');
+  createDiv.classList.add('fifth-page-child');
+  startGridContainer.appendChild(createDiv);
+  //creates the button and attaches
+  const fifthPageChild = document.querySelector('.fifth-page-child');
+  const middleButton = document.createElement('button');
+  middleButton.classList.add('middle-button');
+  middleButton.innerHTML = 'Go Back';
+  fifthPageChild.appendChild(middleButton);
+}
+
+
+
+// makes right button
+const createRightbutton = () => {
+  //creates the div
+  const createDiv = document.createElement('div');
+  createDiv.classList.add('sixth-page-child');
+  startGridContainer.appendChild(createDiv);
+  //creates the button and attaches
+  const sixthPageChild = document.querySelector('.sixth-page-child');
+  const rightButton = document.createElement('button');
+  rightButton.classList.add('right-button');
+  rightButton.innerHTML = 'Go Right';
+  sixthPageChild.appendChild(rightButton);
+}
+
+
+
+// back to start screen - button
+
+
+
+// play again - button
 
 
 
@@ -141,15 +178,11 @@ const firstPage = () => {
   // create a fourth div - big text.
   fourthChildDiv('Hi. I\'m text. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices.');
 
+  createMiddleButton();
 
-
-
-// so...crate two more buttons. remove the start button - maybe do that first.
-// repalce the text.
-// make an items menu.
-
-
+  createRightbutton();
 }
+
 
 const secondPage = () => {
 
