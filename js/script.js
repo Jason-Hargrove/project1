@@ -135,7 +135,7 @@ const firstPage = () => {
   // removes the start button
   startButton.remove();
 
-    // create - left button on third page child.
+  // create - left button on third page child.
   createLeftButton();
 
   // create a fourth div - big text.
