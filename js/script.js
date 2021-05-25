@@ -11,6 +11,8 @@ const startThirdChild = document.querySelector('.start-third-child');
 // all the other pages
 const pageGridContainer = document.querySelector('.page-grid-container');
 
+const rightColumn = document.querySelector('.right-page-column');
+
 
 
 // death page. same format as the start page.
@@ -59,7 +61,6 @@ const createMiddleButton = () => {
   middleButton.innerHTML = 'Go Back';
   fifthPageChild.appendChild(middleButton);
 }
-
 
 
 // makes right button
@@ -168,6 +169,7 @@ const firstPage = () => {
 
   // content - third - item list
   const thirdPageChild = document.querySelector('.third-page-child');
+
 
   // removes the start button
   startButton.remove();
