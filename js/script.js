@@ -1,108 +1,91 @@
 // ========== console log everyting =========
-let log = console.log
+
+let log = console.log;
+
 
 // ========== dom nodes ==========
-// start page
-const startGridContainer = document.querySelector('.start-grid-container');
-const startFirstChild = document.querySelector('.start-first-child');
-const startSecondChild = document.querySelector('.start-second-child');
-const startThirdChild = document.querySelector('.start-third-child');
 
-// all the other pages
-const pageGridContainer = document.querySelector('.page-grid-container');
-
-const rightColumn = document.querySelector('.right-page-column');
+//pages
+const startPage = document.querySelector('div#start-page');
+const pageOne = document.querySelector('div#page-one');
+const first = document.querySelectorAll('div.first');
+const second = document.querySelectorAll('div.second');
+const third = document.querySelectorAll('div.third');
 
 
 
-// death page. same format as the start page.
-const deathGridContainer = document.querySelector('.death-gird-container');
-const firstDeathChild = document.querySelector('.first-death-child');
-const secondDeathChild = document.querySelector('.second-death-child');
-const thirddDeathChild = document.querySelector('.third-death-child');
+// ========== start page ==========
+// generate start button
+const makeStartButton = () => {
+  const newButton = document.createElement('button');
+  newButton.classList.add('start-button');
+  newButton.innerHTML = 'Start the Game';
+  third[0].appendChild(newButton);
+}
+makeStartButton();
 
+
+
+// // flex container
+// const flexContainer = document.querySelector('body > div#modal > .flex-container');
+//
+// // left column
+// const leftColumn = document.querySelector('body > div#modal > div.flex-container > div.left-column');
+// const firstDiv = document.querySelector('div.first');
+// const secondDiv = document.querySelector('div.second');
+// const thirdDiv = document.querySelector('div.third');
+//
+// // rigth column
+// const rightColumn = document.querySelector('body > div#modal > div.flex-container > div.right-column');
+// const fourthDiv = document.querySelector('div.fourth');
+// const fifthDiv = document.querySelector('div.fifth');
+// const sixthDiv = document.querySelector('div.sixth');
+//
+//
 // ========== global fuinctions ==========
-// replaces class
-const replaceClass = (selector, old, updated) => {
-    selector.classList.replace(old, updated);
-}
+//
+// // replaces class
+// const replaceClass = (selector, old, updated) => {
+//     selector.classList.replace(old, updated);
+// }
+//
 
-
-// makes the big text box and places text into it
-const fourthChildDiv = (text) => {
-  const createDiv = document.createElement('div');
-  createDiv.classList.add('fourth-page-child');
-  createDiv.innerHTML = text;
-  startGridContainer.appendChild(createDiv);
-}
-
-
-
-// makes a left button
-const createLeftButton = () => {
-  const thirdPageChild = document.querySelector('.third-page-child');
-  const leftButton = document.createElement('button');
-  leftButton.classList.add('left-button');
-  leftButton.innerHTML = 'Go Left';
-  thirdPageChild.appendChild(leftButton);
-}
-
-
-// makes middle button
-const createMiddleButton = () => {
-  //creates the div
-  const createDiv = document.createElement('div');
-  createDiv.classList.add('fifth-page-child');
-  startGridContainer.appendChild(createDiv);
-  //creates the button and attaches
-  const fifthPageChild = document.querySelector('.fifth-page-child');
-  const middleButton = document.createElement('button');
-  middleButton.classList.add('middle-button');
-  middleButton.innerHTML = 'Go Back';
-  fifthPageChild.appendChild(middleButton);
-}
-
-
-// makes right button
-const createRightbutton = () => {
-  //creates the div
-  const createDiv = document.createElement('div');
-  createDiv.classList.add('sixth-page-child');
-  startGridContainer.appendChild(createDiv);
-  //creates the button and attaches
-  const sixthPageChild = document.querySelector('.sixth-page-child');
-  const rightButton = document.createElement('button');
-  rightButton.classList.add('right-button');
-  rightButton.innerHTML = 'Go Right';
-  sixthPageChild.appendChild(rightButton);
-}
-
-
-
-// back to start screen - button
-
-
-
-// play again - button
-
-
-
-// increases dose randomly on page
-const randomDose = () => {
-
-}
-
-// may use
-const turnThePage = () => {
-  // render the page
-}
-
-// may use
-const updateButtons = () => {
-
-}
-
+//
+// // generates a left button
+// const leftButton = () => {
+//   const newButton = document.createElement('button');
+//   newButton.classList.add('left-button');
+//   newButton.innerHTML = 'Go Left';
+//   thirdDiv.appendChild(newButton);
+// }
+//
+// // generates a middle button
+// const backButton = () => {
+//   const newButton = document.createElement('button');
+//   newButton.classList.add('back-button');
+//   newButton.innerHTML = 'Go Back';
+//   fifthDiv.appendChild(newButton);
+// }
+//
+// // generates a right button
+// const rightbutton = () => {
+//   const newButton = document.createElement('button');
+//   newButton.classList.add('right-button');
+//   newButton.innerHTML = 'Go Right';
+//   sixthDiv.appendChild(newButton);
+// }
+//
+// // back to start screen - button
+//
+// // play again - button
+//
+// // increases dose randomly on page
+// // const randomDose = () => {
+// //}
+//
+//
 // ========== classes ==========
+
 class Character {
   constructor(name, uptake) {
     this.name = name;
@@ -116,7 +99,10 @@ class Character {
   }
 }
 
+const itemList = ['place-holder', 'place-holder2', 'broken-pppp'];
+
 // ========== instantiate classes ==========
+
 const player = new Character('Player', 10);
 
 const pen = new Character('Pen', 11);
@@ -125,86 +111,63 @@ const paper = new Character('Paper', 13);
 const brokenPipe = new Character('Broken Pipe', 14);
 
 
-// ==================== pages ====================
+// // ==================== pages ====================
+//
+// // ===== start of the game - this function called near the bottom of the document =====
+//
+// const startGame = () => {
+//   // title
+//   firstDiv.innerHTML = '<h1>Accumulative Dose</h1>';
+//   // large text field
+//   secondDiv.innerHTML = '<p>Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.</p>';
+//
+//   // start button
+//   startButton();
+// }
+//
+// // ===== page 1 =====
 
-// ===== game start ======
-const startGame = () => {
-
-  // title
-  startFirstChild.innerHTML = '<h1>Accumulative Dose</h1>';
-
-  // bottle
-  startSecondChild.innerHTML = '<p>Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive.</p>';
-
-  // start button
-  const newButton = document.createElement('button');
-  newButton.classList.add('start-button');
-  newButton.innerHTML = 'Start the Game';
-  startThirdChild.appendChild(newButton);
-  // end start button
-}
-
-// ===== page 1 =====
-// specific pages start here
 const firstPage = () => {
-  // replace grid container
-  replaceClass(startGridContainer, 'start-grid-container', 'page-grid-container');
 
-  // replace first child - dose meter
-  replaceClass(startFirstChild, 'start-first-child', 'first-page-child');
-
-  // replace Second - text?
-  replaceClass(startSecondChild, 'start-second-child', 'second-page-child');
-
-  // replace third
-  replaceClass(startThirdChild, 'start-third-child', 'third-page-child');
-
-  // content - first - dose rate
-  const firstPageChild = document.querySelector('.first-page-child');
-  firstPageChild.innerHTML = `DOSE ${player.uptake}`;
-
-  // content - second - text
-  const secondPageChild = document.querySelector('.second-page-child');
-  secondPageChild.innerHTML = `Hi.You see a ${pen.name}`;
-
-  // content - third - item list
-  const thirdPageChild = document.querySelector('.third-page-child');
-
-
-  // removes the start button
-  startButton.remove();
-
-  // create - left button on third page child.
-  createLeftButton();
-
-  // create a fourth div - big text.
-  fourthChildDiv('Hi. I\'m text. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices.');
-
-  createMiddleButton();
-
-  createRightbutton();
-}
-
-
-const secondPage = () => {
-
+// dosimeter
+log(first)
+const doseRate = `<center> <h4>DOSE</h4> ${player.uptake} </center>`;
+first[1].innerHTML = doseRate;
 
 }
 
-const thirdPage = () => {
 
 
-}
 
-const death = () => {
+//
+// // maybe make a function to poplulate the list
+// secondDiv.innerHTML = itemList;
+//
+// // removes the start button
+// startButtonListiner.remove();
+//
+// // create - left button on third page child.
+// leftButton();
+//
+// // big text
+// fourthDiv.innerHTML = '<p>Hi. I\'m text. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices. Survive. Escape if you can! Make the right choices.</p>';
+//
+// backButton();
+//
+// rightbutton();
+// }
 
 
-}
+// const death = () => {
 
-// ========== on load ==========
-startGame();
-
-const startButton = document.querySelector(".start-button");
-
+// // // ========== on load ==========
+// startGame();
+//
 // ========== event listiners ==========
-startButton.addEventListener('click', firstPage);
+const startButton = document.querySelector('.start-button');
+startButton.addEventListener('click', (e) => {
+  document.querySelector('#start-page').style.display = 'none';
+  document.querySelector('#page-one').style.display = 'flex';
+  document.querySelector('.left-column').style.display = 'flex';
+  firstPage();
+});

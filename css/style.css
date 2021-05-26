@@ -21,91 +21,71 @@ button { font-size: 20px; }
   border-radius: 0.5em;
 }
 
-/* ========== start grid container ========== */
-.start-grid-container {
+/* ========== start page ========== */
+div#start-page {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.start-first-child {
-  /* background-color: rgba(200, 0, 0, 0.2); */
+/* ===== general page styles ===== */
+.left-column {
+
 }
 
-.start-second-child {
+.right-column {
+
+}
+
+
+/* ===== pages 1 - ?  ===== */
+div#page-one {
+  display: none;
+  border-radius: solid red;
+}
+
+div#page-two {
+  display: none;
+}
+
+div#page-three {
+  display: none;
+}
+
+div#page-four {
+  display: none;
+}
+
+div#end {
+  display: none;
+}
+
+
+/* .second {
   overflow: scroll;
   height: 150px;
   padding: 0 10px 0 10px;
   margin: 0px 5px 50px 5px;
-  /* background-color: rgba(200, 0, 0, 0.2); */
 }
 
-.start-third-child {
+.third {
   margin: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9);
 }
 
-/* ========== pages ========== */
-.page-grid-container {
+/* ===== right column ===== */
+/* .right-column {
   display: flex;
   flex-direction: column;
-  border: solid red;
-  row-gap: 30px;
-}
-
-/* left column */
-.first-page-child {
-  /* display: flex; */
-  /* place-self: start;
-  padding: 5px 8px 20px 8px;
-  background-color: rgba(200, 0, 0, 0.2); */
-}
-
-.second-page-child {
-  /* place-self: center;
-  background-color: rgba(200, 200, 0, 0.2);
-  padding: 0 10px 0 10px; */
-}
-
-/* just for the start page button */
-.third-page-child {
-  /* order: 2;
-  place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9); */
-}
-
-/* right column */
-.right-column {
-  display: flex;
-}
+  } */
 
 
+/* .fourth {
+  overflow: scroll;
+  height: 150px;
+  padding: 0 10px 0 10px;
+  margin: 0px 5px 50px 5px;
+} */
 
 
-.fourth-page-child {
-  align-self: flex-end;
-  /* place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9); */
-}
-
-.fifth-page-child {
-  /* place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9); */
-}
-
-.sixth-page-child {
-  /* place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9); */
-}
 
 /* ========== death ==========
      _____
@@ -114,30 +94,3 @@ button { font-size: 20px; }
    /       \
    ~~~~~~~~~
 */
-
-.death-gird-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  row-gap: 30px;
-}
-
-.first-death-child {
-  place-self: center;
-  padding: 5px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.2);
-}
-
-.second-death-child {
-  place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.5);
-}
-
-.third-death-child {
-  place-self: center;
-  align-self: end;
-  padding: 50px 0 0 0;
-  background-color: rgba(200, 0, 0, 0.9);
-}
