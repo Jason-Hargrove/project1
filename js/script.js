@@ -5,15 +5,19 @@ let log = console.log;
 
 // ========== dom nodes ==========
 
-//pages
+//start page
 const startPage = document.querySelector('div#start-page');
+const startTitle = document.querySelector('div.title-sector');
+const startContent = document.querySelector('div.content-sector');
+const startPageButton = document.querySelector('div.button-sector');
+
+// pages
 const pageOne = document.querySelector('div#page-one');
 const first = document.querySelectorAll('div.first');
 const second = document.querySelectorAll('div.second');
 const third = document.querySelectorAll('div.third');
 const fourth = document.querySelectorAll('div.fourth');
 const fifth = document.querySelectorAll('div.fifth');
-const sixth = document.querySelectorAll('div.sixth');
 
 
 // ========== global fuinctions ==========
@@ -44,7 +48,7 @@ const rightbutton = (i) => {
   const newButton = document.createElement('button');
   newButton.classList.add('right-button');
   newButton.innerHTML = 'Go Right';
-  sixth[i].appendChild(newButton);
+  fifth[i].appendChild(newButton);
 }
 
 // back to start screen - button
@@ -63,7 +67,7 @@ const makeTitle = () => {
   const newTitle = document.createElement('h1');
   newTitle.classList.add('title');
   newTitle.innerHTML = 'Accumulative Dose';
-  first[0].appendChild(newTitle);
+  startTitle.appendChild(newTitle);
 }
 makeTitle();
 
@@ -72,7 +76,7 @@ const makeContent = () => {
   const newContent = document.createElement('p');
   newContent.classList.add('content');
   newContent.innerHTML = 'Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! ';
-  second[0].appendChild(newContent);
+  startContent.appendChild(newContent);
 }
 makeContent();
 
@@ -81,7 +85,7 @@ const makeStartButton = () => {
   const newButton = document.createElement('button');
   newButton.classList.add('start-button');
   newButton.innerHTML = 'Start the Game';
-  third[0].appendChild(newButton);
+  startPageButton.appendChild(newButton);
 }
 makeStartButton();
 // ========== end start page ==========
@@ -103,7 +107,7 @@ class Character {
 }
 
 // ========== array of iems - to be moved to character evntually =========
-const itemsList = ['place-holder', 'place-holder2', 'broken-pppp'];
+const itemsList = ['Wrench', 'Pen', 'Broken Pipe', 'Adjustable Wrench', 'Paper'];
 
 // ========== instantiate classes ==========
 
@@ -122,12 +126,12 @@ const brokenPipe = new Character('Broken Pipe', 14);
 const firstPage = () => {
   // dosimeter
   const doseRate = `<center> <h4>DOSE</h4> ${player.uptake} </center>`;
-  first[1].innerHTML = doseRate;
+  first[0].innerHTML = doseRate;
 
   // generates an unordered list
   const newUl = document.createElement('ul');
   newUl.classList.add('unordered-list');
-  second[1].appendChild(newUl);
+  second[0].appendChild(newUl);
   // ...dom node
   const unorderedList = document.querySelector('.unordered-list');
   // ...place items in list
@@ -138,10 +142,10 @@ const firstPage = () => {
   });
 
   // generates a left button
-  leftButton(1);
+  leftButton(0);
 
   // Block of text on page
-  const mainText = `<p> Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you clck on them, it should update your item list.`
+  const mainText = `<p> Hi. This is the text content on the page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
   fourth[0].innerHTML = mainText;
 
   backButton(0);
@@ -158,6 +162,6 @@ const startButton = document.querySelector('.start-button');
 startButton.addEventListener('click', (e) => {
   document.querySelector('#start-page').style.display = 'none';
   document.querySelector('#page-one').style.display = 'flex';
-  document.querySelector('.left-column').style.display = 'flex';
+  // document.querySelector('.left-column').style.display = 'flex';
   firstPage();
 });
