@@ -57,20 +57,17 @@ div#page-one {
   /* border: solid red; */
 }
 
-div#page-two {
-  display: none;
-}
-
-div#page-three {
-  display: none;
-}
-
-div#page-four {
-  display: none;
-}
-
+/* ========== death ==========
+     _____
+    ( O o )
+    /  O  \
+   /       \
+   ~~~~~~~~~
+*/
 div#end {
   display: none;
+  flex-direction: row;
+  height: 380px;
 }
 
 
@@ -119,10 +116,9 @@ justify-content: flex-end;
 div.fourth {
   height: 90%;
   margin: 5px 5px 15px 40px;
-  padding: 0 10px 0 10px;
+  padding: 0 15px 0 15px;
   background: linear-gradient(rgba(244, 179, 80, 1), rgba(255,255,255, 1));
   /* overflow: scroll; */
-
 }
 
 div.fifth {
@@ -133,38 +129,3 @@ div.fifth {
   justify-content: space-between;
   align-items: flex-end;
 }
-
-/* .second {
-  overflow: scroll;
-  height: 150px;
-  padding: 0 10px 0 10px;
-  margin: 0px 5px 50px 5px;
-}
-
-.third {
-  margin: 50px 0 0 0;
-}
-
-/* ===== right column ===== */
-/* .right-column {
-  display: flex;
-  flex-direction: column;
-  } */
-
-
-/* .fourth {
-  overflow: scroll;
-  height: 150px;
-  padding: 0 10px 0 10px;
-  margin: 0px 5px 50px 5px;
-} */
-
-
-
-/* ========== death ==========
-     _____
-    ( O o )
-    /  O  \
-   /       \
-   ~~~~~~~~~
-*/
