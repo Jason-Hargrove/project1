@@ -1,6 +1,17 @@
 /* ========== general styles ========== */
 button { font-size: 20px; }
 
+.item {
+  color: magenta;
+}
+
+.item:hover {
+  text-transform: capitalize;
+  transition: .2s;
+  font-size: 15pt;
+}
+
+
 button.restart-button {
   margin-left: 120px;
 }
