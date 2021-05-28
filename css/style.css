@@ -1,6 +1,10 @@
 /* ========== general styles ========== */
 button { font-size: 20px; }
 
+button.restart-button {
+  margin-left: 120px;
+}
+
 ul {
   list-style: none;
 }

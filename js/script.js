@@ -13,13 +13,15 @@ const startPageButton = document.querySelector('div.button-sector');
 
 // page-one and elements
 const pageOne = document.querySelector('div#page-one');
-const grabPageClass = document.querySelectorAll('.page-one')
+const grabPageClass = document.querySelectorAll('.page-one');
+
+const leftColumn = document.querySelectorAll('div.left-column');
 const first = document.querySelectorAll('div.first');
 const second = document.querySelectorAll('div.second');
 const third = document.querySelectorAll('div.third');
+
 const fourth = document.querySelectorAll('div.fourth');
 const fifth = document.querySelectorAll('div.fifth');
-
 
 // ========== global fuinctions ==========
 //
@@ -49,6 +51,13 @@ const rightbutton = (i) => {
   const newButton = document.createElement('button');
   newButton.classList.add('right-button');
   newButton.innerHTML = 'Go Right';
+  fifth[i].appendChild(newButton);
+}
+
+const makeRestartButton = (i) => {
+  const newButton = document.createElement('button');
+  newButton.classList.add('restart-button');
+  newButton.innerHTML = 'Restart the Game';
   fifth[i].appendChild(newButton);
 }
 
@@ -153,10 +162,15 @@ const firstPage = () => {
 
   rightbutton(0);
 
+
+
   // ========== event listiners ==========
   const goLeft = document.querySelector('.left-button');
   const goBack = document.querySelector('.back-button');
   const goRight = document.querySelector('.right-button');
+
+
+
 
   // left button
   goLeft.addEventListener('click', (e) => {
@@ -167,132 +181,182 @@ const firstPage = () => {
       grabPageClass[0].classList.replace('page-four', 'page-six');
       sixthPage();
     } else if (pageOne.classList.contains('page-six')) {
-      grabPageClass[0].classList.replace('page-six', 'page-10');
+      grabPageClass[0].classList.replace('page-six', 'page-eight');
+      eighthPage();
+    } else if (pageOne.classList.contains('page-eight')) {
+        grabPageClass[0].classList.replace('page-eight', 'page-ten');
+        goLeft.remove();
+        goRight.remove();
+        goBack.remove();
+        leftColumn[0].remove();
+        makeRestartButton(0);
+        let listen = () => {
+          const restart = document.querySelector('.restart-button');
+            restart.addEventListener('click', (e) => {
+              document.location.href = "";
+            });
+        }
+        listen();
+
+
+
+        tenthPage();
+    } else if (pageOne.classList.contains('page-three')) {
+      grabPageClass[0].classList.replace('page-three', 'page-five');
+      fifthPage();
+    } else if (pageOne.classList.contains('page-five')) {
+      grabPageClass[0].classList.replace('page-five', 'page-seven');
+      seventhPage();
+    } else if (pageOne.classList.contains('page-seven')) {
+      grabPageClass[0].classList.replace('page-seven', 'page-nine');
+      ninthPage();
+    } else if (pageOne.classList.contains('page-nine')) {
+      grabPageClass[0].classList.replace('page-nine', 'page-ten');
       tenthPage();
-    } else if (pageOne.classList.contains('page-two')) {
-      grabPageClass[0].classList.replace('page-two', 'page-four');
-      fourthPage();
     } else {
-      grabPageClass[0].classList.replace('page-one', 'page-two');
-      secondPage();
-      log(grabPageClass)
-    }
+        grabPageClass[0].classList.replace('page-one', 'page-two');
+        secondPage();
+      }
+    });
+
+    // back button
+    goBack.addEventListener('click', (e) => {
+      alert('Ain\'t no going back!');
+      fourth[0].innerHTML = '<h2>Ain\'t no going back! There is nothing but darkness behind you. Choose a diffrent path or die here.</h2>';
+      // increase uptake here!
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+    });
+
+    // right button
+    goRight.addEventListener('click', (e) => {
+      // pasted
+      if (pageOne.classList.contains('page-three')) {
+        grabPageClass[0].classList.replace('page-three', 'page-five');
+        fifthPage();
+      } else if (pageOne.classList.contains('page-five')) {
+        grabPageClass[0].classList.replace('page-five', 'page-seven');
+        seventhPage();
+      } else if (pageOne.classList.contains('page-seven')) {
+        grabPageClass[0].classList.replace('page-seven', 'page-nine');
+        ninthPage();
+      } else if (pageOne.classList.contains('page-nine')) {
+        grabPageClass[0].classList.replace('page-nine', 'page-ten');
+        tenthPage();
+      } else if (pageOne.classList.contains('page-two')) {
+        grabPageClass[0].classList.replace('page-two', 'page-four');
+        fourthPage();
+      } else if (pageOne.classList.contains('page-four')) {
+        grabPageClass[0].classList.replace('page-four', 'page-six');
+        sixthPage();
+      } else if (pageOne.classList.contains('page-six')) {
+        grabPageClass[0].classList.replace('page-six', 'page-eight');
+        eighthPage();
+      } else if (pageOne.classList.contains('page-eight')) {
+        grabPageClass[0].classList.replace('page-eight', 'page-ten');
+        tenthPage();
+      } else {
+        grabPageClass[0].classList.replace('page-one', 'page-three');
+        thirdPage();
+      }
+    });
+  }
+  // ---------- end page 1 ----------
+
+  // ---------- page 2 ----------
+  const secondPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 2 ----------
+
+  // ---------- page 3 ----------
+  const thirdPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 3.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 3 ----------
+
+  // ---------- page 4 ----------
+  const fourthPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Page! 4 This is page 4.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 4 ----------
+
+  // ---------- page 5 ----------
+  const fifthPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 5.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 5 ----------
+
+  // ---------- page 6 ----------
+  const sixthPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 6.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 6 ----------
+
+  // ---------- page 7 ----------
+  const seventhPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 7.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 7 ----------
+
+  // ---------- page 8 ----------
+  const eighthPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 8.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 8 ----------
+
+  // ---------- page 9 ----------
+  const ninthPage = () => {
+    // dosimeter update
+
+    // Block of text on page
+    const mainText = `<p> Hi. This is page 9.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
+    fourth[0].innerHTML = mainText;
+  }
+  // ---------- end page 9 ----------
+
+  // ---------- page 10 ----------
+  const tenthPage = () => {
+
+// Block of text on page
+const mainText = `<h1>Somehow you managed to escape! Congradulations! Now you can live a couple of year before you body succumbs to all the yummy radiation it soked up today.</h1>`
+fourth[0].innerHTML = mainText;
+}
+  // ---------- end page 10 ----------
+
+  // ========== event listiners ==========
+  // title page start button
+  const startButton = document.querySelector('.start-button');
+
+  startButton.addEventListener('click', (e) => {
+    document.querySelector('#start-page').style.display = 'none';
+    document.querySelector('#page-one').style.display = 'flex';
+    firstPage();
   });
-
-  // back button
-  goBack.addEventListener('click', (e) => {
-    alert('Ain\'t no going back!');
-    fourth[0].innerHTML = '<h2>Ain\'t no going back! There is nothing but darkness behind you. Choose a diffrent path or die here.</h2>';
-    // increase uptake here!
-    fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
-  });
-
-  // right button
-  goRight.addEventListener('click', (e) => {
-
-    //else
-    grabPageClass[0].classList.replace('page-one', 'page-three');
-    thirdPage();
-  });
-}
-// ---------- end page 1 ----------
-
-// ---------- page 2 ----------
-const secondPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 2 ----------
-
-// ---------- page 3 ----------
-const thirdPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 3.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 3 ----------
-
-// ---------- page 4 ----------
-const fourthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Page! 4 This is page 4.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 4 ----------
-
-// ---------- page 5 ----------
-const fifthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 5.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 5 ----------
-
-// ---------- page 6 ----------
-const sixthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 6.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 6 ----------
-
-// ---------- page 7 ----------
-const seventhPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 7.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 7 ----------
-
-// ---------- page 8 ----------
-const eighthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 8.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 8 ----------
-
-// ---------- page 9 ----------
-const ninthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 9.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 9 ----------
-
-// ---------- page 10 ----------
-const tenthPage = () => {
-  // dosimeter update
-
-  // Block of text on page
-  const mainText = `<p> Hi. This is page 10.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the ${pen.name}. When you click on them, they should update your item list.</p>`
-  fourth[0].innerHTML = mainText;
-}
-// ---------- end page 10 ----------
-
-// ========== event listiners ==========
-// title page start button
-const startButton = document.querySelector('.start-button');
-
-startButton.addEventListener('click', (e) => {
-  document.querySelector('#start-page').style.display = 'none';
-  document.querySelector('#page-one').style.display = 'flex';
-  firstPage();
-});
