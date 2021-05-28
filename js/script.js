@@ -24,7 +24,13 @@ const fourth = document.querySelectorAll('div.fourth');
 const fifth = document.querySelectorAll('div.fifth');
 
 // ========== global fuinctions ==========
-//
+// math random
+const getRandomInt = () => {
+  return Math.floor(Math.random() * 21);
+}
+
+
+
 // // replaces class
 // const replaceClass = (selector, old, updated) => {
 //     selector.classList.replace(old, updated);
@@ -107,12 +113,19 @@ class Character {
   constructor(name, uptake) {
     this.name = name;
     this.uptake = uptake;
+    this.items = [];
   }
-  pickUp(){
-
+  addToUptake(i) {
+    this.uptake += i;
   }
-  useItem() {
-
+  // pickUp(i){
+  //   this.items.push(i);
+  // }
+  pickUp(i){
+    this.items.push(i);
+  }
+  getUptake() {
+    return this.uptake;
   }
 }
 
@@ -127,6 +140,14 @@ const pen = new Character('Pen', 11);
 const adjustableWrench = new Character('Wrench', 12);
 const paper = new Character('Paper', 13);
 const brokenPipe = new Character('Broken Pipe', 14);
+
+player.pickUp(pen);
+player.pickUp(paper);
+log(player);
+player.addToUptake(getRandomInt());
+log(player.getUptake())
+log(player.uptake);
+
 
 
 // ==================== pages ====================
