@@ -3,19 +3,21 @@
 
 
 /* ========== general styles ========== */
-h2 {
-  font-family: 'Truculenta', sans-serif;
+body {
+background-image: url("https://images.squarespace-cdn.com/content/v1/57902faa59cc68a958c59c03/1622324844872-X9QWAVCFHHH4BH5HKSIT/ke17ZwdGBToddI8pDm48kK76DcT2UKzlsgAB1sYMl8dZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIJ5trr0ZlpgWWCd4-RPFhluVNSwHIILnHrRty2DN_9s8KMshLAGzx4R3EDFOm1kBS/tri-foil-background.jpg?format=1500w");
+background-size: 200px;
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-}
+h2 { font-family: 'Truculenta', sans-serif; }
+
+p { font-family: 'Roboto', sans-serif; }
+
+
+
+
+/* ---------- buttons ---------- */
 
 button { font-size: 20px; }
-
-button.start-button {
-
-}
 
 button.restart-button {
   margin-left: 120px;
@@ -37,8 +39,6 @@ button.restart-button {
   font-size: 15pt;
 }
 
-
-
 ul {
   list-style: none;
 }
@@ -49,6 +49,7 @@ li {
 
 /* ========== modal ========== */
 .modal {
+  background-color: white;
   position: fixed;
   justify-content: center;
   top: 50%;
