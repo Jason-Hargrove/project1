@@ -77,7 +77,7 @@ makeTitle();
 const makeContent = () => {
   const newContent = document.createElement('p');
   newContent.classList.add('content');
-  newContent.innerHTML = 'Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! Escape if you can! ';
+  newContent.innerHTML = '<p>Escape if you can! A radiological even has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
   startContent.appendChild(newContent);
 }
 makeContent();
@@ -274,6 +274,15 @@ const firstPage = () => {
         }, {once : true});
       }
       wrenchListen();
+            // pick up the RESPERATOR
+            const resperatorListen = () => {
+              const resperatorNode = document.querySelector('.resp');
+              resperatorNode.addEventListener('mouseover', (e) => {
+                player.pickUp(resperator, 50);
+                dosimeter();
+              }, {once : true});
+            }
+            resperatorListen();
       player.uptake += getRandomInt();
       dosimeter();
     }
@@ -315,9 +324,6 @@ const firstPage = () => {
     } else if (pageOne.classList.contains('page-three')) {
       grabPageClass[0].classList.replace('page-three', 'page-five');
       fifthPage();
-
-//-----------------//-------------------//------------------//--------------------////
-
       // pick up the RESPERATOR
       const resperatorListen = () => {
         const resperatorNode = document.querySelector('.item');
@@ -327,9 +333,6 @@ const firstPage = () => {
         }, {once : true});
       }
       resperatorListen();
-
-//-----------------//-------------------//------------------//--------------------////
-
       player.uptake += getRandomInt();
       dosimeter();
     } else if (pageOne.classList.contains('page-five')) {
@@ -401,7 +404,7 @@ const firstPage = () => {
 // ---------- page 2 ----------
 const secondPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the <span class="item">${adjustableWrench.name}</span> and the pen When you click on them, they over there yeah</p>`
+  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the <span class="item">${adjustableWrench.name}</span> and the pen Toute la petite société entra dans ce louable dessein; chacun se mit à exercer ses talents. La petite terre rapporta beaucoup. Cunégonde était, à la vérité, bien laide; mais elle devint une excellente pâtissière; Paquette broda; la vieille eut soin du linge. Il n’y eut pas jusqu’à frère Giroflée qui ne rendît service; il fut un très bon menuisier, et même devint honnête homme: et Pangloss disait quelquefois à Candide: Tous les événements sont enchaînés dans le meilleur des mondes possibles; car enfin si vous n’aviez pas été chassé d’un beau château à grands coups de pied dans le derrière pour l’amour de mademoiselle Cunégonde,  <span class="item resp">${resperator.name}</span>  si vous n’aviez pas été mis à l’inquisition, si vous n’aviez pas couru l’Amérique à pied, si vous n’aviez pas donné un bon coup d’épée au baron, si vous n’aviez pas perdu tous vos moutons du bon pays d’Eldorado, vous ne mangeriez pas ici des cédrats confits et des pistaches. Cela est bien dit, répondit Candide, mais il faut cultiver notre jardin </p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 2 ----------
@@ -489,3 +492,7 @@ startButton.addEventListener('click', (e) => {
   document.querySelector('#page-one').style.display = 'flex';
   firstPage();
 });
+
+
+
+////-----//-----//-----//-----//-----// CAUTION RADIOACTIVE MATERIALS //-----//-----//-----//-----//-----//-----////

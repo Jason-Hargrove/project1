@@ -1,8 +1,22 @@
+/* ========== fonts ========== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Truculenta&display=swap');
+
+
 /* ========== general styles ========== */
+h2 {
+  font-family: 'Truculenta', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 button { font-size: 20px; }
 
 .item {
   color: magenta;
+  font-family: 'Truculenta', sans-serif;
+  font-size: 14pt;
 }
 
 .item:hover {
@@ -11,13 +25,16 @@ button { font-size: 20px; }
   font-size: 15pt;
 }
 
-
 button.restart-button {
   margin-left: 120px;
 }
 
 ul {
   list-style: none;
+}
+
+li {
+  font-family: 'Roboto', sans-serif;
 }
 
 /* ========== modal ========== */
@@ -96,10 +113,15 @@ align-items: center;
 
 /* left column items */
 div.first {
-  align-self: center;
   background: linear-gradient(rgba(207, 0, 15, 0.8), rgba(255,255,255, 1));
   margin: 5px 0 10px 5px;
   padding: 0 50px 5px 50px;
+}
+
+.final-dose {
+  border: 1px solid rgba(255, 255, 255, 1);
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 div.second {
@@ -133,7 +155,7 @@ div.fourth {
   margin: 5px 5px 15px 40px;
   padding: 0 15px 0 15px;
   background: linear-gradient(rgba(244, 179, 80, 1), rgba(255,255,255, 1));
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 div.fifth {
