@@ -20,23 +20,16 @@ const first = document.querySelectorAll('div.first');
 const second = document.querySelectorAll('div.second');
 const third = document.querySelectorAll('div.third');
 
+const rightColumn = document.querySelectorAll('div.right-column');
 const fourth = document.querySelectorAll('div.fourth');
 const fifth = document.querySelectorAll('div.fifth');
-
 
 
 // ========== global fuinctions ==========
 // math random
 const getRandomInt = () => {
-  return Math.floor(Math.random() * 21);
+  return Math.floor(Math.random() * (400 - 75) + 75);
 }
-
-
-
-// // replaces class
-// const replaceClass = (selector, old, updated) => {
-//     selector.classList.replace(old, updated);
-// }
 
 // generates a left button
 const leftButton = (i) => {
@@ -68,15 +61,6 @@ const makeRestartButton = (i) => {
   newButton.innerHTML = 'Restart the Game';
   fifth[i].appendChild(newButton);
 }
-
-// back to start screen - button
-
-// play again - button
-
-// increases dose randomly on page
-// const randomDose = () => {
-//}
-
 
 
 // ========== start page ==========
@@ -121,7 +105,7 @@ class Character {
     this.uptake += i;
   }
   pickUp(i, u) {
-    this.items.push(i);
+    // this.items.push(i);
     this.uptake += u;
     // placing the wrench into the list.
     const newUl = document.createElement('ul');
@@ -130,15 +114,17 @@ class Character {
     // ...dom node
     const unorderedList = document.querySelector('.unordered-list');
     // ...place items in list
+    log()
     const updateItemsList = () => {
       let li = document.createElement('li');
-      li.textContent = 'Wrench';
+      li.textContent = i.name;
       unorderedList.appendChild(li);
+      log(i)
+      log(u)
     }
     updateItemsList();
   }
   // ----- end picUp -----
-
   getUptake() {
     return this.uptake;
   }
@@ -149,13 +135,11 @@ class Character {
 
 const player = new Character('Player', 100);
 
-const pen = new Character('Pen', 11);
 const adjustableWrench = new Character('Wrench', 12);
-const paper = new Character('Paper', 13);
-const brokenPipe = new Character('Broken Pipe', 14);
+const resperator = new Character('Resperator', 50);
 
 
-// ==================== pages ====================
+// %%%%%%%%%%@ page # ONE. there's a lot going on here @%%%%%%%%%%
 
 // ---------- page 1 ----------
 
@@ -179,48 +163,66 @@ const firstPage = () => {
 
   rightbutton(0);
 
-  // ========== event listiners ==========
+
   // ----- dom nodes -----
   const goLeft = document.querySelector('.left-button');
   const goBack = document.querySelector('.back-button');
   const goRight = document.querySelector('.right-button');
 
   const finalDose = document.querySelectorAll('.final-dose');
-  // left button
+
+  // ---------- begin page ONE event listiners ----------
+
+  // <---------- LEFT button
   goLeft.addEventListener('click', (e) => {
-   if (player.uptake >= 200) {
-        log('Hey. this final dose if stament works now')
-        log(finalDose);
-        dosimeter();
-
-
-
-
+   // death note
+   if (player.uptake >= 1000) {
+     // css changes
+     fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+     rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+     fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+     //remove buttons and left column
+     goLeft.remove();
+     goRight.remove();
+     goBack.remove();
+     leftColumn[0].remove();
+     // restart
+     makeRestartButton(0);
+     let listen = () => {
+       const restart = document.querySelector('.restart-button');
+       restart.addEventListener('click', (e) => {
+         document.location.href = "";
+       });
+     }
+     listen();
+     thirteenthPage();
     } else if (pageOne.classList.contains('page-two')) {
       grabPageClass[0].classList.replace('page-two', 'page-four');
       fourthPage();
-      player.uptake += 150;
+      player.uptake += getRandomInt();
       dosimeter();
-      log(finalDose);
     } else if (pageOne.classList.contains('page-four')) {
       grabPageClass[0].classList.replace('page-four', 'page-six');
       sixthPage();
-      player.uptake += 200;
+      player.uptake += getRandomInt();
       dosimeter();
-      log(finalDose);
-      log(player.uptake)
     } else if (pageOne.classList.contains('page-six')) {
       grabPageClass[0].classList.replace('page-six', 'page-eight');
       eighthPage();
-      player.uptake += 250;
+      player.uptake += getRandomInt();
       dosimeter();
-      log(finalDose);
     } else if (pageOne.classList.contains('page-eight')) {
       grabPageClass[0].classList.replace('page-eight', 'page-ten');
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
       goLeft.remove();
       goRight.remove();
       goBack.remove();
       leftColumn[0].remove();
+      // restart
       makeRestartButton(0);
       let listen = () => {
         const restart = document.querySelector('.restart-button');
@@ -230,20 +232,20 @@ const firstPage = () => {
       }
       listen();
       tenthPage();
-    } else if (pageOne.classList.contains('page-three')) {
+      } else if (pageOne.classList.contains('page-three')) {
       grabPageClass[0].classList.replace('page-three', 'page-five');
       fifthPage();
-      player.uptake += 200;
+      player.uptake += getRandomInt();
       dosimeter();
     } else if (pageOne.classList.contains('page-five')) {
       grabPageClass[0].classList.replace('page-five', 'page-seven');
       seventhPage();
-      player.uptake += 400;
+      player.uptake += getRandomInt();
       dosimeter();
     } else if (pageOne.classList.contains('page-seven')) {
       grabPageClass[0].classList.replace('page-seven', 'page-nine');
       ninthPage();
-      player.uptake += 500;
+      player.uptake += getRandomInt();
       dosimeter();
     } else if (pageOne.classList.contains('page-nine')) {
       grabPageClass[0].classList.replace('page-nine', 'page-ten');
@@ -263,23 +265,21 @@ const firstPage = () => {
     } else {
       grabPageClass[0].classList.replace('page-one', 'page-two');
       secondPage();
-      let wrenchListen = () => {
+      // pick up the WRENCH
+      const wrenchListen = () => {
         const wrench = document.querySelector('.item');
         wrench.addEventListener('mouseover', (e) => {
           player.pickUp(adjustableWrench, 12);
-          log(player)
           dosimeter();
         }, {once : true});
       }
       wrenchListen();
-      player.uptake += 50;
+      player.uptake += getRandomInt();
       dosimeter();
-      log('page 2');
-      log(player);
     }
   });
 
-  // back button
+  // <---------- BACK button ---------->
   goBack.addEventListener('click', (e) => {
     alert('Ain\'t no going back!');
     fourth[0].innerHTML = '<h2>Ain\'t no going back! There\'s nothing but darkness behind you. Choose a diffrent path or die here.</h2>';
@@ -289,18 +289,59 @@ const firstPage = () => {
     dosimeter();
   });
 
-  // right button
+  // RIGHT button ---------->
   goRight.addEventListener('click', (e) => {
-    // pasted
-    if (pageOne.classList.contains('page-three')) {
+    // death note
+    if (player.uptake >= 1000) {
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
+      goLeft.remove();
+      goRight.remove();
+      goBack.remove();
+      leftColumn[0].remove();
+      // restart
+      makeRestartButton(0);
+      let listen = () => {
+        const restart = document.querySelector('.restart-button');
+        restart.addEventListener('click', (e) => {
+          document.location.href = "";
+        });
+      }
+      listen();
+      thirteenthPage();
+    } else if (pageOne.classList.contains('page-three')) {
       grabPageClass[0].classList.replace('page-three', 'page-five');
       fifthPage();
+
+//-----------------//-------------------//------------------//--------------------////
+
+      // pick up the RESPERATOR
+      const resperatorListen = () => {
+        const resperatorNode = document.querySelector('.item');
+        resperatorNode.addEventListener('mouseover', (e) => {
+          player.pickUp(resperator, 50);
+          dosimeter();
+        }, {once : true});
+      }
+      resperatorListen();
+
+//-----------------//-------------------//------------------//--------------------////
+
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-five')) {
       grabPageClass[0].classList.replace('page-five', 'page-seven');
       seventhPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-seven')) {
       grabPageClass[0].classList.replace('page-seven', 'page-nine');
       ninthPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-nine')) {
       grabPageClass[0].classList.replace('page-nine', 'page-ten');
       goLeft.remove();
@@ -319,12 +360,18 @@ const firstPage = () => {
     } else if (pageOne.classList.contains('page-two')) {
       grabPageClass[0].classList.replace('page-two', 'page-four');
       fourthPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-four')) {
       grabPageClass[0].classList.replace('page-four', 'page-six');
       sixthPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-six')) {
       grabPageClass[0].classList.replace('page-six', 'page-eight');
       eighthPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     } else if (pageOne.classList.contains('page-eight')) {
       grabPageClass[0].classList.replace('page-eight', 'page-ten');
       goLeft.remove();
@@ -343,15 +390,18 @@ const firstPage = () => {
     } else {
       grabPageClass[0].classList.replace('page-one', 'page-three');
       thirdPage();
+      player.uptake += getRandomInt();
+      dosimeter();
     }
   });
 }
-// ---------- end page 1 ----------
+// ---------- end page ONE event listiners ----------
+// ---------- end page ONE ----------
 
 // ---------- page 2 ----------
 const secondPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the <span class="item">${adjustableWrench.name}</span> and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the <span class="item">${adjustableWrench.name}</span> and the pen When you click on them, they over there yeah</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 2 ----------
@@ -375,8 +425,9 @@ const fourthPage = () => {
 // ---------- page 5 ----------
 const fifthPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 5.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Hi. This is page 5. Pick up the <span class="item">${resperator.name}</span> and put it on quickly. fdsfdsfdsfdsfdsfdsfsdfdsfdfdsfdsfdsfsOr</p>`
   fourth[0].innerHTML = mainText;
+  log(resperator)
 }
 // ---------- end page 5 ----------
 
@@ -415,7 +466,7 @@ const ninthPage = () => {
 // ---------- page 10 ----------
 const tenthPage = () => {
   // Block of text on page
-  const mainText = `<h2>Somehow you managed to escape! Congradulations! Now you can live a couple of year before you body succumbs to all the yummy radiation it soaked up today.</h2>`
+  const mainText = `<h2>Congradulations! Somehow you managed to escape. Now you can live a couple of year before you body succumbs to all the yummy radiation it soaked up today.</h2>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 10 ----------
