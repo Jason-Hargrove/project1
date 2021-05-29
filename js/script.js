@@ -66,10 +66,11 @@ const makeRestartButton = (i) => {
 // ========== start page ==========
 // makes the title
 const makeTitle = () => {
-  const newTitle = document.createElement('h1');
-  newTitle.classList.add('title');
-  newTitle.innerHTML = 'Accumulative Dose';
-  startTitle.appendChild(newTitle);
+  let url = 'https://images.squarespace-cdn.com/content/v1/57902faa59cc68a958c59c03/1622316155756-ZY23MGRHY4IMSZT9N4GV/ke17ZwdGBToddI8pDm48kP6Sv1brw-ymXEfzYhQ2xOl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Uf8cKCsfgqdy7J-l18sigf0u6e_gpmspSpTvb2n_jg6RZDqXZYzu2fuaodM4POSZ4w/accumulative-dose-title-transparent.png?format=1500w';
+  let image = new Image();
+  image.classList.add('title');
+  image.src = url;
+  document.querySelector('div.title-sector').appendChild(image);
 }
 makeTitle();
 
@@ -77,7 +78,7 @@ makeTitle();
 const makeContent = () => {
   const newContent = document.createElement('p');
   newContent.classList.add('content');
-  newContent.innerHTML = '<p>Escape if you can! A radiological even has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
+  newContent.innerHTML = '<p class="title-text">Escape if you can! A radiological even has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
   startContent.appendChild(newContent);
 }
 makeContent();

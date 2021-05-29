@@ -13,6 +13,18 @@ p {
 
 button { font-size: 20px; }
 
+button.start-button {
+
+}
+
+button.restart-button {
+  margin-left: 120px;
+}
+
+.title-text {
+  margin: -12px 0 -30px 0;
+}
+
 .item {
   color: magenta;
   font-family: 'Truculenta', sans-serif;
@@ -25,9 +37,7 @@ button { font-size: 20px; }
   font-size: 15pt;
 }
 
-button.restart-button {
-  margin-left: 120px;
-}
+
 
 ul {
   list-style: none;
@@ -68,6 +78,11 @@ div#start-page {
 
 div.title-sector {
 
+}
+
+div#start-page > div.title-sector > img.title {
+  height: 300px;
+  margin-top: -50px;
 }
 
 div.content-sector {
