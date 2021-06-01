@@ -236,6 +236,16 @@ const firstPage = () => {
       fifthPage();
       player.uptake += getRandomInt();
       dosimeter();
+      // pick up the RESPERATOR
+      const resperatorListen = () => {
+        const resperatorNode = document.querySelector('.resp');
+        resperatorNode.addEventListener('mouseover', (e) => {
+          player.pickUp(resperator, 50);
+          dosimeter();
+        }, {once : true});
+      }
+      resperatorListen();
+      dosimeter();
     } else if (pageOne.classList.contains('page-five')) {
       grabPageClass[0].classList.replace('page-five', 'page-seven');
       seventhPage();
@@ -424,7 +434,7 @@ const firstPage = () => {
 // ---------- page 2 ----------
 const secondPage = () => {
   // Block of text on page
-  const mainText = `<p>As you crawl through the jagged space with just enough space for your body to squeeze through your clothing catches once in awhile and rips. You come across a <span class="item">${adjustableWrench.name}</span>. You begin to feel nauseous. The tunnel appears to continue to the left, and begins to open up to the right.</p>`
+  const mainText = `<p>As you crawl through the jagged space with just enough space for your body to squeeze through your clothing catches once in awhile and rips. You come across a <span class="item">${adjustableWrench.name}</span>. You begin to feel nauseous. The tunnel appears to continue to the left, and begins to open up to the right near a <span class="item resp">${resperator.name}.</span></p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 2 ----------

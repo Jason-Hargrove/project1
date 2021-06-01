@@ -62,6 +62,7 @@ li { font-family: 'Roboto', sans-serif; }
 
 /* ========== modal ========== */
 .modal {
+  background: url("https://images.squarespace-cdn.com/content/v1/57902faa59cc68a958c59c03/1622584442688-HNKRA9SLEEJ3DWLALGI0/ke17ZwdGBToddI8pDm48kM36lrdCqgKFbsOGgm6HJ9AUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcTQcG_YJbZS5BgvSnY_Zd4l-a0BiZ7y8fyaPae9lwgRs089mQi5z3JPI7CgWfGEkZ/splatter-model-background.jpg?format=1000w");
   background-color: white;
   position: fixed;
   justify-content: center;
@@ -108,19 +109,6 @@ div#page-one {
   height: 380px;
 }
 
-/* ========== death ==========
-_____
-( O o )
-/  O  \
-/       \
-~~~~~~~~~
-*/
-div#end {
-  display: none;
-  flex-direction: row;
-  height: 380px;
-}
-
 
 /* ===== column styles ===== */
 .left-column {
@@ -151,10 +139,10 @@ div.second {
   box-shadow: 1em 1em 0 2px rgba(82, 179, 217, 0.3);
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 0, 255, 0.1),
-    rgba(255, 0, 255, 0.1) 20px,
-    rgba(240, 255, 0, 0.1) 20px,
-    rgba(240, 255, 0, 0.1) 40px
+    rgba(255, 0, 255, 0.5),
+    rgba(255, 0, 255, 0.5) 20px,
+    rgba(240, 255, 0, 0.5) 20px,
+    rgba(240, 255, 0, 0.5) 40px
     );
   }
 
