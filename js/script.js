@@ -1,13 +1,10 @@
 // ========== console log everyting =========
-
 let log = console.log;
 
 
 // ========== dom nodes ==========
 
 //start page
-const startPage = document.querySelector('div#start-page');
-const startTitle = document.querySelector('div.title-sector');
 const startContent = document.querySelector('div.content-sector');
 const startPageButton = document.querySelector('div.button-sector');
 
@@ -78,7 +75,7 @@ makeTitle();
 const makeContent = () => {
   const newContent = document.createElement('p');
   newContent.classList.add('content');
-  newContent.innerHTML = '<p class="title-text">Escape if you can! A radiological even has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
+  newContent.innerHTML = '<p class="title-text">Escape if you can! A radiological event has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
   startContent.appendChild(newContent);
 }
 makeContent();
@@ -139,13 +136,12 @@ const player = new Character('Player', 100);
 const adjustableWrench = new Character('Wrench', 12);
 const resperator = new Character('Resperator', 50);
 
-
+////-----//-----//-----//-----//-----// CAUTION RADIOACTIVE MATERIALS //-----//-----//-----//-----//-----//-----////
 // %%%%%%%%%%@ page # ONE. there's a lot going on here @%%%%%%%%%%
 
 // ---------- page 1 ----------
 
 const firstPage = () => {
-
   // dosimeter
   const dosimeter = () => {
     const doseRate = `<center> <h4>DOSE</h4> <h3 class="final-dose">${player.uptake}</h3>mSv</center>`;
@@ -154,7 +150,10 @@ const firstPage = () => {
   dosimeter();
 
   // Block of text on page
-  const mainText = `<p> Hi. This is page 1. the text content on the page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>There’s a ringing in your ear, an all is black. As your vision and hearing slowly returns, you find yourself on the ground covers in dust and debris.You gather strength to stand while reaching in your pack pocket to pull out your flashlight. Light flicker and sparks flash all around you. You scan the area with your light. What happened? Did a bomb drop? Equipment malfunction? Either way your dosimeter has increased and seems to be steady increasing. You need to flee - but not towards the source. Which way?</p>
+  <p>Your flashlight can’t penetrate the dust and heat behind you.</p>
+  <p>To the left there appears to be a hole small enough to craw through - light emits out.</p>
+  <p>To the right a dark corridor with busted steam pipes scattered about obscure the way - you hope they’re steam pipes.</p>`
   fourth[0].innerHTML = mainText;
 
   // make the buttons
@@ -164,7 +163,6 @@ const firstPage = () => {
 
   rightbutton(0);
 
-
   // ----- dom nodes -----
   const goLeft = document.querySelector('.left-button');
   const goBack = document.querySelector('.back-button');
@@ -172,31 +170,31 @@ const firstPage = () => {
 
   const finalDose = document.querySelectorAll('.final-dose');
 
-  // ---------- begin page ONE event listiners ----------
+  // ---------- begin page ONE IF staments and event listiners ----------
 
   // <---------- LEFT button
   goLeft.addEventListener('click', (e) => {
-   // death note
-   if (player.uptake >= 1000) {
-     // css changes
-     fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
-     rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
-     fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
-     //remove buttons and left column
-     goLeft.remove();
-     goRight.remove();
-     goBack.remove();
-     leftColumn[0].remove();
-     // restart
-     makeRestartButton(0);
-     let listen = () => {
-       const restart = document.querySelector('.restart-button');
-       restart.addEventListener('click', (e) => {
-         document.location.href = "";
-       });
-     }
-     listen();
-     thirteenthPage();
+    // death note
+    if (player.uptake >= 1000) {
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
+      goLeft.remove();
+      goRight.remove();
+      goBack.remove();
+      leftColumn[0].remove();
+      // restart
+      makeRestartButton(0);
+      let listen = () => {
+        const restart = document.querySelector('.restart-button');
+        restart.addEventListener('click', (e) => {
+          document.location.href = "";
+        });
+      }
+      listen();
+      thirteenthPage();
     } else if (pageOne.classList.contains('page-two')) {
       grabPageClass[0].classList.replace('page-two', 'page-four');
       fourthPage();
@@ -233,7 +231,7 @@ const firstPage = () => {
       }
       listen();
       tenthPage();
-      } else if (pageOne.classList.contains('page-three')) {
+    } else if (pageOne.classList.contains('page-three')) {
       grabPageClass[0].classList.replace('page-three', 'page-five');
       fifthPage();
       player.uptake += getRandomInt();
@@ -250,10 +248,16 @@ const firstPage = () => {
       dosimeter();
     } else if (pageOne.classList.contains('page-nine')) {
       grabPageClass[0].classList.replace('page-nine', 'page-ten');
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
       goLeft.remove();
       goRight.remove();
       goBack.remove();
       leftColumn[0].remove();
+      // restart
       makeRestartButton(0);
       let listen = () => {
         const restart = document.querySelector('.restart-button');
@@ -266,6 +270,8 @@ const firstPage = () => {
     } else {
       grabPageClass[0].classList.replace('page-one', 'page-two');
       secondPage();
+      player.uptake += getRandomInt();
+      dosimeter();
       // pick up the WRENCH
       const wrenchListen = () => {
         const wrench = document.querySelector('.item');
@@ -275,16 +281,15 @@ const firstPage = () => {
         }, {once : true});
       }
       wrenchListen();
-            // pick up the RESPERATOR
-            const resperatorListen = () => {
-              const resperatorNode = document.querySelector('.resp');
-              resperatorNode.addEventListener('mouseover', (e) => {
-                player.pickUp(resperator, 50);
-                dosimeter();
-              }, {once : true});
-            }
-            resperatorListen();
-      player.uptake += getRandomInt();
+      // pick up the RESPERATOR
+      const resperatorListen = () => {
+        const resperatorNode = document.querySelector('.resp');
+        resperatorNode.addEventListener('mouseover', (e) => {
+          player.pickUp(resperator, 50);
+          dosimeter();
+        }, {once : true});
+      }
+      resperatorListen();
       dosimeter();
     }
   });
@@ -348,10 +353,16 @@ const firstPage = () => {
       dosimeter();
     } else if (pageOne.classList.contains('page-nine')) {
       grabPageClass[0].classList.replace('page-nine', 'page-ten');
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
       goLeft.remove();
       goRight.remove();
       goBack.remove();
       leftColumn[0].remove();
+      // restart
       makeRestartButton(0);
       let listen = () => {
         const restart = document.querySelector('.restart-button');
@@ -378,10 +389,16 @@ const firstPage = () => {
       dosimeter();
     } else if (pageOne.classList.contains('page-eight')) {
       grabPageClass[0].classList.replace('page-eight', 'page-ten');
+      // css changes
+      fourth[0].style.background = 'linear-gradient(rgba(255, 0, 255, 1), rgba(255,255,255, 1))';
+      rightColumn[0].style.cssText += 'color:yellow;padding-right:30px;';
+      fourth[0].style.cssText += 'color:yellow;padding-left:40px;';
+      //remove buttons and left column
       goLeft.remove();
       goRight.remove();
       goBack.remove();
       leftColumn[0].remove();
+      // restart
       makeRestartButton(0);
       let listen = () => {
         const restart = document.querySelector('.restart-button');
@@ -399,13 +416,15 @@ const firstPage = () => {
     }
   });
 }
-// ---------- end page ONE event listiners ----------
+// ---------- end page ONE IF statements and event listiners ----------
 // ---------- end page ONE ----------
+
+//  ↓↓↓↓↓↓↓↓↓↓  pages 2 - 10 and 13  ↓↓↓↓↓↓↓↓↓↓
 
 // ---------- page 2 ----------
 const secondPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 2.This is the text on the second page. the player should read this. It should show pick up items like the <span class="item">${adjustableWrench.name}</span> and the pen Toute la petite société entra dans ce louable dessein; chacun se mit à exercer ses talents. La petite terre rapporta beaucoup. Cunégonde était, à la vérité, bien laide; mais elle devint une excellente pâtissière; Paquette broda; la vieille eut soin du linge. Il n’y eut pas jusqu’à frère Giroflée qui ne rendît service; il fut un très bon menuisier, et même devint honnête homme: et Pangloss disait quelquefois à Candide: Tous les événements sont enchaînés dans le meilleur des mondes possibles; car enfin si vous n’aviez pas été chassé d’un beau château à grands coups de pied dans le derrière pour l’amour de mademoiselle Cunégonde,  <span class="item resp">${resperator.name}</span>  si vous n’aviez pas été mis à l’inquisition, si vous n’aviez pas couru l’Amérique à pied, si vous n’aviez pas donné un bon coup d’épée au baron, si vous n’aviez pas perdu tous vos moutons du bon pays d’Eldorado, vous ne mangeriez pas ici des cédrats confits et des pistaches. Cela est bien dit, répondit Candide, mais il faut cultiver notre jardin </p>`
+  const mainText = `<p>As you crawl through the jagged space with just enough space for your body to squeeze through your clothing catches once in awhile and rips. You come across a <span class="item">${adjustableWrench.name}</span>. You begin to feel nauseous. The tunnel appears to continue to the left, and begins to open up to the right.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 2 ----------
@@ -413,7 +432,7 @@ const secondPage = () => {
 // ---------- page 3 ----------
 const thirdPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 3.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Steam from the pipes burn as you continue moving forward stumbling over fragments of concrete. Lights flicker to the right.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 3 ----------
@@ -421,7 +440,7 @@ const thirdPage = () => {
 // ---------- page 4 ----------
 const fourthPage = () => {
   // Block of text on page
-  const mainText = `<p> Page! 4 This is page 4.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Frantically pushing against the sides of the tunnel a piece of sheet metal gives way and you fall through hitting the floor of what appears to be the control room. The emergency lights are on but dim. None of the panels are operable. Everything is covered with a thick heavy dust. The exit for the building use to be on the left.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 4 ----------
@@ -429,7 +448,7 @@ const fourthPage = () => {
 // ---------- page 5 ----------
 const fifthPage = () => {
   // Block of text on page
-  const mainText = `<p>Hi. This is page 5. Pick up the <span class="item">${resperator.name}</span> and put it on quickly. fdsfdsfdsfdsfdsfdsfsdfdsfdfdsfdsfdsfsOr</p>`
+  const mainText = `<p>There’s a fire consuming this room. The exits are on the other side. In a cubby along the way - about to collapse under the heat and cinders - you see what appears to be a <span class="item resp">${resperator.name}</span> in clear plastic bag.</p>`
   fourth[0].innerHTML = mainText;
   log(resperator)
 }
@@ -438,7 +457,7 @@ const fifthPage = () => {
 // ---------- page 6 ----------
 const sixthPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 6.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Ramming your shower into the exit door repeatedly it finally give way. You can finally see what was blocking it. It’s someone you recognize. They must have been trying to open the door before all that debris hit them in the back and head at high velocity.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 6 ----------
@@ -446,7 +465,7 @@ const sixthPage = () => {
 // ---------- page 7 ----------
 const seventhPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 7.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Walking into the bathroom would normally offer you no escape, but the ceiling collapsed and the rear wall has crumbled creating a steep sharp ramp of sorts. A beam has fallen through the middle of the ramp.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 7 ----------
@@ -454,7 +473,7 @@ const seventhPage = () => {
 // ---------- page 8 ----------
 const eighthPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 8.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>Treading warm water up to your knees, you make your way down a now narrow corridor. The fumes that come off the water burn your nose.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 8 ----------
@@ -462,7 +481,7 @@ const eighthPage = () => {
 // ---------- page 9 ----------
 const ninthPage = () => {
   // Block of text on page
-  const mainText = `<p> Hi. This is page 9.This is the text on the second page. the player should read this. It should show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list. Hi. This is the text content on the page. the player should read this. It sould show pick up items like the ${adjustableWrench.name} and the pen When you click on them, they should update your item list.</p>`
+  const mainText = `<p>A thick cloud of smoke fills the room, and looks even thicker to to the right. If you had a respirator, maybe you could make it.</p>`
   fourth[0].innerHTML = mainText;
 }
 // ---------- end page 9 ----------
@@ -493,7 +512,3 @@ startButton.addEventListener('click', (e) => {
   document.querySelector('#page-one').style.display = 'flex';
   firstPage();
 });
-
-
-
-////-----//-----//-----//-----//-----// CAUTION RADIOACTIVE MATERIALS //-----//-----//-----//-----//-----//-----////
