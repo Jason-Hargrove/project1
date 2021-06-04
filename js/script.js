@@ -22,7 +22,7 @@ const fourth = document.querySelectorAll('div.fourth');
 const fifth = document.querySelectorAll('div.fifth');
 
 
-// ========== global fuinctions ==========
+// ========== global functions ==========
 // math random
 const getRandomInt = () => {
   return Math.floor(Math.random() * (400 - 75) + 75);
@@ -75,7 +75,7 @@ makeTitle();
 const makeContent = () => {
   const newContent = document.createElement('p');
   newContent.classList.add('content');
-  newContent.innerHTML = '<p class="title-text">Escape if you can! A radiological event has occured and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate to much radiation it\'s game over.</p>';
+  newContent.innerHTML = '<p class="title-text">Escape if you can! A radiological event has occurred and you have to find your way out. Pick up items along the way that may help or harm you. When you\'ve accumulate too much radiation it\'s game over.</p>';
   startContent.appendChild(newContent);
 }
 makeContent();
