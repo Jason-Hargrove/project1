@@ -11,7 +11,7 @@ A choose your own adventure game.
 4. I would like to see unique background images for each page.
 5. I could redo the whole thing and turn it into a React project and use hook to dry out the code.
 
-
+# About the Project
 1. The first page:
    * Play starts with a start **button** and a brief explanation.
    * A **button** that links to an about page, and links back to the first page.
