@@ -6,10 +6,13 @@ A choose your own adventure game.
 
 # Project Improvements
 1. I need to add a .gitignore. [x]
-2. I could make it longer by adding more tools and more stories.
-3. Players should have the right tool to escape or have to backtrack.
-4. I would like to see unique background images for each page.
-5. I could redo the whole thing and turn it into a React project and use hook to dry out the code.
+2. Deploy on Heroku. [x]
+3. Add open graph meta tags. [x]
+4. Clean up code.
+5. I could make it longer by adding more tools and more stories.
+6. Players should have the right tool to escape or have to backtrack.
+7. I would like to see unique background images for each page.
+8. I could redo the whole thing and turn it into a React project and use hook to dry out the code.
 
 # About the Project
 1. The first page:
@@ -31,3 +34,9 @@ A choose your own adventure game.
 
 2. Ending:
    * When you reach the exit and have not accumulated a lethal dose of radiation.
+
+# Links
+
+[__This Project on Heroku__](https://accumulative-dose.herokuapp.com/)
+
+[__My Personal Website__](http://www.jasonhargroveart.com/)
