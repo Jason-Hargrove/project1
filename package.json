@@ -1,4 +1,7 @@
 {
+  "engines": {
+  "node": "14.17.0"
+  },
   "name": "accumulative-dose",
   "version": "1.0.0",
   "description": "**Accumulative Dose**",
@@ -16,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Jason-Hargrove/project1/issues"
   },
-  "homepage": "https://github.com/Jason-Hargrove/project1",
+  "homepage": "https://github.com/Jason-Hargrove/project1/",
   "dependencies": {
     "express": "^4.17.1"
   }
