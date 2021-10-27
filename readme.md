@@ -5,7 +5,7 @@
 A choose your own adventure game.
 
 # Project Improvements
-1. I need to add a .gitignore.
+1. I need to add a .gitignore.- [x] 
 2. I could make it longer by adding more tools and more stories.
 3. Players should have the right tool to escape or have to backtrack.
 4. I would like to see unique background images for each page.
