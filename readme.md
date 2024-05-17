@@ -5,6 +5,7 @@
 A choose your own adventure game.
 
 # Project Improvements
+
 1. I need to add a .gitignore. [x]
 2. Deploy on Heroku. [x]
 3. Add open graph meta tags. [x]
@@ -15,28 +16,32 @@ A choose your own adventure game.
 8. I could redo the whole thing and turn it into a React project and use hook to dry out the code.
 
 # About the Project
+
 1. The first page:
-   * Play starts with a start **button** and a brief explanation.
-   * A **button** that links to an about page, and links back to the first page.
-   * A **button** that links to a how to page, and links back to the first page.
-   * A start **button**.
+
+   - Play starts with a start **button** and a brief explanation.
+   - A **button** that links to an about page, and links back to the first page.
+   - A **button** that links to a how to page, and links back to the first page.
+   - A start **button**.
 
 2. The second page:
-   * A dosimeter in the top right keeping track of accumulative exposure to radiation.
-   * A items list.
-   * Two **buttons** to choose form that move the character to the next page.
-   * A story / description of where is, what the charter is feeling, and what they see.
+
+   - A dosimeter in the top right keeping track of accumulative exposure to radiation.
+   - A items list.
+   - Two **buttons** to choose form that move the character to the next page.
+   - A story / description of where is, what the charter is feeling, and what they see.
 
 3. Play continues:
-   * Different pages are loaded depending on the choice of the player.
-   * Items accumulated will aid (or not) the player along the way.
-   * The dose meter continues to go up depending on the path and items.
 
-2. Ending:
-   * When you reach the exit and have not accumulated a lethal dose of radiation.
+   - Different pages are loaded depending on the choice of the player.
+   - Items accumulated will aid (or not) the player along the way.
+   - The dose meter continues to go up depending on the path and items.
+
+4. Ending:
+   - When you reach the exit and have not accumulated a lethal dose of radiation.
 
 # Links
 
-[__This Project on Heroku__](https://accumulative-dose.herokuapp.com/)
+[**This Project on Heroku**](https://accumulative-dose-bd1d20d3465f.herokuapp.com/)
 
-[__My Personal Website__](http://www.jasonhargroveart.com/)
+[**My Personal Website**](http://www.jasonhargroveart.com/)
